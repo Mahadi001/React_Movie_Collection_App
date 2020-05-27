@@ -1,5 +1,5 @@
 import React from "react";
-import Contacts from "./components/Contacts";
+import Movies from "./components/Movies";
 import Header from "./components/Header";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header branding="Movie Collections" />
       <div className="container">
-        <Contacts />
+        <Movies />
       </div>
     </div>
   );
