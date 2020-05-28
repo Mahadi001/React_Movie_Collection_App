@@ -12,12 +12,26 @@ class Movie extends Component {
     });
   };
 
+  onDeleteClick = () => {
+    this.props.deleteClickHandler();
+  };
+
   render() {
     const { name, genre, rating } = this.props.movie;
     return (
       <div className="card card-body mb-3">
         <h4>
-          {name} <i onClick={this.onShowClick} className="fas fa-sort-down"></i>
+          {name}{" "}
+          <i
+            onClick={this.onShowClick}
+            className="fas fa-sort-down"
+            style={{ cursor: "pointer" }}
+          ></i>
+          <i
+            onClick={this.onDeleteClick}
+            className="fas fa-times"
+            style={{ cursor: "pointer", float: "right" }}
+          ></i>
         </h4>
         {this.state.showMovieInfo ? (
           <ul className="list-group">
@@ -32,6 +46,7 @@ class Movie extends Component {
 
 Movie.proptype = {
   movie: PropTypes.object.isRequired,
+  deleteClickHandler: PropTypes.func.isRequired,
 };
 
 export default Movie;

@@ -31,12 +31,26 @@ class Movies extends Component {
     ],
   };
 
+  deleteMovie = (id) => {
+    const { movies } = this.state;
+
+    const newMovies = movies.filter((movie) => movie.id !== id);
+
+    this.setState({
+      movies: newMovies,
+    });
+  };
+
   render() {
     const { movies } = this.state;
     return (
       <React.Fragment>
         {movies.map((movie) => (
-          <Movie key={movie.id} movie={movie} />
+          <Movie
+            key={movie.id}
+            movie={movie}
+            deleteClickHandler={this.deleteMovie.bind(this, movie.id)}
+          />
         ))}
       </React.Fragment>
     );
